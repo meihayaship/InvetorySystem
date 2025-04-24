@@ -1,0 +1,93 @@
+body {
+  font-family: Arial, sans-serif;
+  background-color: #fff8e1; /* light yellow background */
+  margin: 0;
+  padding: 0;
+}
+.container {
+  max-width: 900px;
+  margin: 30px auto;
+  background: #fff3cd; /* pale yellow box */
+  padding: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+}
+h1 {
+  text-align: center;
+  color: #b71c1c; /* deep red */
+}
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+input, button {
+  padding: 10px;
+  border: 1px solid #b71c1c;
+  border-radius: 5px;
+  font-size: 16px;
+}
+button {
+  background-color: #d32f2f; /* red */
+  color: white;
+  cursor: pointer;
+}
+button:hover {
+  background-color: #b71c1c; /* darker red on hover */
+}
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+  overflow-x: auto;
+}
+th, td {
+  padding: 10px;
+  border: 1px solid #f57f17; /* dark yellow border */
+  text-align: center;
+}
+th {
+  background-color: #fdd835; /* yellow */
+  color: #b71c1c; /* deep red text */
+}
+
+@media screen and (max-width: 768px) {
+  .container {
+    width: 95%;
+    padding: 10px;
+  }
+  form {
+    gap: 8px;
+  }
+  input, button {
+    font-size: 14px;
+    padding: 8px;
+  }
+  th, td {
+    font-size: 14px;
+    padding: 6px;
+  }
+  table, thead, tbody, th, td, tr {
+    display: block;
+  }
+  tr {
+    margin-bottom: 15px;
+  }
+  td {
+    text-align: right;
+    position: relative;
+    padding-left: 50%;
+  }
+  td::before {
+    content: attr(data-label);
+    position: absolute;
+    left: 10px;
+    width: 45%;
+    padding-left: 10px;
+    font-weight: bold;
+    text-align: left;
+  }
+  th {
+    display: none;
+  }
+}
