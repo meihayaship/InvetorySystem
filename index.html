@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Rice Store Inventory System</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="container">
+    <h1>RICE INVENTORY SYSTEM</h1>
+    <form id="inventoryForm">
+      <input type="text" id="itemName" placeholder="Rice Type (e.g., Sinandomeng)" required />
+      <input type="number" id="itemQuantity" placeholder="Quantity in kg" required />
+      <input type="number" id="itemPrice" placeholder="Price per kg" required />
+      <button type="submit">Add to Inventory</button>
+      <button type="button" id="clearForm">Clear</button>
+    </form>
+
+    <input type="text" id="lookupName" placeholder="Search Rice Type" />
+    <button type="button" id="lookupBtn">Lookup</button>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Rice Type</th>
+          <th>Quantity (kg)</th>
+          <th>Price per kg</th>
+          <th>Total Value</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody id="inventoryTable">
+        <!-- Inventory rows will appear here -->
+      </tbody>
+    </table>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
