@@ -3,7 +3,54 @@ body {
   background-color: #fff8e1; /* light yellow background */
   margin: 0;
   padding: 0;
+  display: flex;
 }
+
+.main-container {
+  display: flex;
+  width: 100%;
+}
+
+.sidebar {
+  width: 70px;
+  background-color: #b71c1c; /* deep red */
+  color: white;
+  padding: 20px;
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+  height: 100vh;
+  position: fixed;
+}
+
+.sidebar h2 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+}
+
+.sidebar ul li {
+  margin: 15px 0;
+}
+
+.sidebar ul li a {
+  color: white;
+  text-decoration: none;
+  font-size: 18px;
+}
+
+.sidebar ul li a:hover {
+  text-decoration: underline;
+}
+
+.content {
+  margin-left: 250px; /* Matches the sidebar width */
+  padding: 20px;
+  width: calc(100% - 250px);
+}
+
 .container {
   max-width: 900px;
   margin: 30px auto;
@@ -12,40 +59,48 @@ body {
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   border-radius: 8px;
 }
+
 h1 {
   text-align: center;
   color: #b71c1c; /* deep red */
 }
+
 form {
   display: flex;
   flex-direction: column;
   gap: 10px;
 }
+
 input, button {
   padding: 10px;
   border: 1px solid #b71c1c;
   border-radius: 5px;
   font-size: 16px;
 }
+
 button {
   background-color: #d32f2f; /* red */
   color: white;
   cursor: pointer;
 }
+
 button:hover {
   background-color: #b71c1c; /* darker red on hover */
 }
+
 table {
   width: 100%;
   border-collapse: collapse;
   margin-top: 20px;
   overflow-x: auto;
 }
+
 th, td {
   padding: 10px;
   border: 1px solid #f57f17; /* dark yellow border */
   text-align: center;
 }
+
 th {
   background-color: #fdd835; /* yellow */
   color: #b71c1c; /* deep red text */
