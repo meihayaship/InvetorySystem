@@ -15,7 +15,6 @@ function renderInventoryTable() {
     row.innerHTML = `
       <td data-label="Rice Type">${item.name}</td>
       <td data-label="Quantity (kg)">${item.quantity}</td>
-      <td data-label="Price per kg">${item.price.toFixed(2)}</td>
       <td data-label="Total Value">${(item.quantity * item.price).toFixed(2)}</td>
       <td data-label="Actions">
         <button class="editBtn">Edit</button>

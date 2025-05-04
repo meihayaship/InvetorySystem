@@ -1,33 +1,58 @@
 const salesForm = document.getElementById('salesForm');
 const salesTable = document.getElementById('salesTable');
 
+// Load sales data from localStorage
+let salesData = JSON.parse(localStorage.getItem('sales')) || [];
+
+// Render sales table rows
+function renderSalesTable() {
+  salesTable.innerHTML = '';
+  salesData.forEach((sale, index) => {
+    const row = document.createElement('tr');
+    row.innerHTML = `
+      <td data-label="Rice Type">${sale.name}</td>
+      <td data-label="Quantity Sold (kg)">${sale.quantity}</td>
+      <td data-label="Selling Price per kg">₱${sale.price.toFixed(2)}</td>
+      <td data-label="Total Sale Value">₱${(sale.quantity * sale.price).toFixed(2)}</td>
+      <td data-label="Actions">
+        <button class="deleteSaleBtn" data-index="${index}">Delete</button>
+      </td>
+    `;
+    salesTable.appendChild(row);
+  });
+}
+
+// Save sales data to localStorage
+function saveSalesData() {
+  localStorage.setItem('sales', JSON.stringify(salesData));
+}
+
+// Handle form submission
 salesForm.addEventListener('submit', function (e) {
   e.preventDefault();
 
   const name = document.getElementById('saleItemName').value;
   const quantity = parseFloat(document.getElementById('saleQuantity').value);
   const price = parseFloat(document.getElementById('salePrice').value);
-  const total = quantity * price;
 
-  const row = document.createElement('tr');
-  row.innerHTML = `
-    <td data-label="Rice Type">${name}</td>
-    <td data-label="Quantity Sold (kg)">${quantity}</td>
-    <td data-label="Selling Price per kg">${price.toFixed(2)}</td>
-    <td data-label="Total Sale Value">${total.toFixed(2)}</td>
-    <td data-label="Actions">
-      <button class="deleteSaleBtn">Delete</button>
-    </td>
-  `;
+  // Add new sale to salesData
+  salesData.push({ name, quantity, price });
+  saveSalesData();
+  renderSalesTable();
 
-  salesTable.appendChild(row);
+  // Reset the form
   salesForm.reset();
 });
 
+// Handle delete button clicks
 salesTable.addEventListener('click', function (e) {
-  const target = e.target;
-  if (target.classList.contains('deleteSaleBtn')) {
-    const row = target.closest('tr');
-    row.remove();
+  if (e.target.classList.contains('deleteSaleBtn')) {
+    const index = e.target.getAttribute('data-index');
+    salesData.splice(index, 1);
+    saveSalesData();
+    renderSalesTable();
   }
 });
+
+// Initial render
+renderSalesTable();

@@ -1,19 +1,24 @@
+/* General body styling */
+/* Light mode (default) */
 body {
-  font-family: Arial, sans-serif;
-  background-color: #fff8e1; /* light yellow background */
+  font-family: 'Arial', sans-serif;
+  background-color: #f4f4f9; /* Light gray background */
+  color: #333; /* Dark gray text */
   margin: 0;
   padding: 0;
   display: flex;
 }
 
+/* Main container */
 .main-container {
   display: flex;
   width: 100%;
 }
 
+/* Sidebar styling */
 .sidebar {
-  width: 70px;
-  background-color: #b71c1c; /* deep red */
+  width: 250px;
+  background-color: #2c3e50; /* Dark blue-gray */
   color: white;
   padding: 20px;
   box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
@@ -24,6 +29,7 @@ body {
 .sidebar h2 {
   text-align: center;
   margin-bottom: 20px;
+  font-size: 20px;
 }
 
 .sidebar ul {
@@ -39,110 +45,121 @@ body {
   color: white;
   text-decoration: none;
   font-size: 18px;
+  display: block;
+  padding: 10px;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
 }
 
 .sidebar ul li a:hover {
-  text-decoration: underline;
+  background-color: #34495e; /* Slightly lighter blue-gray */
 }
 
+/* Content area */
 .content {
-  margin-left: 250px; /* Matches the sidebar width */
+  margin-left: 270px; /* Matches the sidebar width */
   padding: 20px;
-  width: calc(100% - 250px);
+  width: calc(100% - 270px);
 }
 
 .container {
   max-width: 900px;
   margin: 30px auto;
-  background: #fff3cd; /* pale yellow box */
+  background: white;
+  color: #333;
   padding: 20px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
   border-radius: 8px;
 }
 
+/* Menu header styling */
+.menu-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.menu-header h2 {
+  margin: 0;
+  font-size: 20px;
+}
+
+.menu-header button {
+  background-color: #2ecc71; /* Green */
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background-color 0.3s ease;
+}
+
+.menu-header button:hover {
+  background-color: #27ae60; /* Darker green */
+}
+
+/* Headings */
 h1 {
   text-align: center;
-  color: #b71c1c; /* deep red */
+  color: #2c3e50; /* Dark blue-gray */
 }
 
-form {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
+h2 {
+  text-align: center;
+  color: #34495e; /* Slightly lighter blue-gray */
 }
 
-input, button {
-  padding: 10px;
-  border: 1px solid #b71c1c;
-  border-radius: 5px;
-  font-size: 16px;
-}
-
-button {
-  background-color: #d32f2f; /* red */
-  color: white;
-  cursor: pointer;
-}
-
-button:hover {
-  background-color: #b71c1c; /* darker red on hover */
-}
-
+/* Tables */
 table {
   width: 100%;
   border-collapse: collapse;
-  margin-top: 20px;
-  overflow-x: auto;
+  margin: 20px 0;
 }
 
 th, td {
   padding: 10px;
-  border: 1px solid #f57f17; /* dark yellow border */
   text-align: center;
+  border: 1px solid #ddd;
 }
 
 th {
-  background-color: #fdd835; /* yellow */
-  color: #b71c1c; /* deep red text */
+  background-color: #2c3e50; /* Dark blue-gray */
+  color: white;
 }
 
+td {
+  background-color: #ecf0f1; /* Light gray */
+}
+
+/* Buttons */
+button {
+  background-color: #2ecc71; /* Green */
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #27ae60; /* Darker green */
+}
+
+/* Responsive design */
 @media screen and (max-width: 768px) {
+  .sidebar {
+    width: 200px;
+  }
+
+  .content {
+    margin-left: 220px;
+    width: calc(100% - 220px);
+  }
+
   .container {
-    width: 95%;
-    padding: 10px;
-  }
-  form {
-    gap: 8px;
-  }
-  input, button {
-    font-size: 14px;
-    padding: 8px;
-  }
-  th, td {
-    font-size: 14px;
-    padding: 6px;
-  }
-  table, thead, tbody, th, td, tr {
-    display: block;
-  }
-  tr {
-    margin-bottom: 15px;
-  }
-  td {
-    text-align: right;
-    position: relative;
-    padding-left: 50%;
-  }
-  td::before {
-    content: attr(data-label);
-    position: absolute;
-    left: 10px;
-    width: 45%;
-    padding-left: 10px;
-    font-weight: bold;
-    text-align: left;
-  }
-  th {
-    display: none;
+    padding: 15px;
   }
 }
