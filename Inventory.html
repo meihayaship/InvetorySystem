@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Inventory - Rice Store Inventory System</title>
   <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" /> <!-- Font Awesome -->
 <script src="inventory.js" defer></script>
 </head>
 <body>
@@ -12,10 +13,10 @@
     <aside class="sidebar">
       <h2>Menu</h2>
       <ul>
-        <li><a href="dashboard.html">Dashboard</a></li>
-        <li><a href="inventory.html">Inventory</a></li> 
-        <li><a href="sales.html">Sales</a></li>
-        <li><a href="reports.html">Reports</a></li>
+        <li><a href="dashboard.html"><i class="fas fa-home"></i> <span>Dashboard</span></a></li>
+        <li><a href="Inventory.html"><i class="fas fa-boxes"></i> <span>Inventory</span></a></li>
+        <li><a href="sales.html"><i class="fas fa-shopping-cart"></i> <span>Sales</span></a></li>
+        <li><a href="reports.html"><i class="fas fa-chart-line"></i> <span>Reports</span></a></li>
       </ul>
     </aside>
     <div class="content">
@@ -24,7 +25,7 @@
         <form id="inventoryForm">
           <input type="text" id="itemName" placeholder="Rice Type (e.g., Sinandomeng)" required />
           <input type="number" id="itemQuantity" placeholder="Number of Sacks" required />
-          <input type="number" id="itemPrice" placeholder="Price per Sacks" required />
+          <input type="number" id="itemPrice" placeholder=" Sacks Price" required />
           <button type="submit">Add to Inventory</button>
           <button type="button" id="clearForm">Clear</button>
         </form>
@@ -36,7 +37,7 @@
           <thead>
             <tr>
               <th>Rice Type</th>
-              <th>Quantity (kg)</th>
+              <th>Quantity (sacks)</th>
               <th>Total Value</th>
               <th>Actions</th>
             </tr>

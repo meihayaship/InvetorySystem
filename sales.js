@@ -35,8 +35,20 @@ salesForm.addEventListener('submit', function (e) {
   const quantity = parseFloat(document.getElementById('saleQuantity').value);
   const price = parseFloat(document.getElementById('salePrice').value);
 
-  // Add new sale to salesData
-  salesData.push({ name, quantity, price });
+  // Check if the sale item with the same name and price already exists
+  const existingSale = salesData.find(
+    sale => sale.name.toLowerCase() === name.toLowerCase() && sale.price === price
+  );
+
+  if (existingSale) {
+    // Update the existing sale's quantity
+    existingSale.quantity += quantity;
+    (`Updated ${name}: Quantity Sold is now ${existingSale.quantity} kg.`);
+  } else {
+    // Add new sale to salesData
+    salesData.push({ name, quantity, price });
+  }
+
   saveSalesData();
   renderSalesTable();
 
