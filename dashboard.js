@@ -3,13 +3,13 @@ const inventoryData = JSON.parse(localStorage.getItem('inventory')) || [];
 const salesData = JSON.parse(localStorage.getItem('sales')) || [];
 
 // Calculate Total Value in Inventory
-const totalInventoryValue = inventoryData.reduce((sum, item) => sum + (item.quantity * item.price), 0);
+const totalInventoryValue = inventoryData.reduce((sum, item) => sum + (item.price), 0);
 
 // Calculate Total Sale Value in Sales
 const totalSalesValue = salesData.reduce((sum, sale) => sum + (sale.quantity * sale.price), 0);
 
 // Calculate Earn
-const earn = totalInventoryValue - totalSalesValue;
+const earn =  totalSalesValue - totalInventoryValue;
 
 // Update Earn Table
 const earnTable = document.getElementById('earnTable');

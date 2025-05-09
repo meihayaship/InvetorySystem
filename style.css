@@ -1,18 +1,10 @@
 /* General body styling */
-/* Light mode (default) */
 body {
-  font-family: 'Arial', sans-serif;
-  background-color: #f4f4f9; /* Light gray background */
-  color: #333; /* Dark gray text */
+  font-family: Arial, sans-serif;
   margin: 0;
   padding: 0;
   display: flex;
-}
-
-/* Main container */
-.main-container {
-  display: flex;
-  width: 100%;
+  flex-direction: column; /* Stack elements vertically */
 }
 
 /* Sidebar styling */
@@ -24,33 +16,32 @@ body {
   box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
   height: 100vh;
   position: fixed;
-  transition: width 0.3s ease; /* Smooth transition for resizing */
+  left: 0;
+  top: 0;
+  z-index: 1000;
 }
 
 .sidebar h2 {
-  text-align: center;
-  margin-bottom: 20px;
-  font-size: 20px;
-  color: white;
+  margin: 0 0 20px;
+  font-size: 18px;
 }
 
 .sidebar ul {
   list-style: none;
   padding: 0;
+  margin: 0;
 }
 
 .sidebar ul li {
-  margin: 15px 0;
+  margin-bottom: 10px;
 }
 
 .sidebar ul li a {
   color: white;
   text-decoration: none;
-  font-size: 18px;
-  display: flex;
-  align-items: center;
-  gap: 10px; /* Space between icon and text */
-  padding: 10px;
+  font-size: 16px;
+  padding: 10px 15px;
+  display: block;
   border-radius: 5px;
   transition: background-color 0.3s ease;
 }
@@ -59,106 +50,23 @@ body {
   background-color: #34495e; /* Slightly lighter blue-gray */
 }
 
-.sidebar ul li a i {
-  font-size: 20px; /* Icon size */
-}
-
-/* Responsive sidebar for smaller screens */
-@media screen and (max-width: 768px) {
-  .sidebar {
-    width: 80px; /* Narrow sidebar for smaller screens */
-  }
-
-  .sidebar h2 {
-    display: none; /* Hide the "Menu" heading */
-  }
-
-  .sidebar ul li a span {
-    display: none; /* Hide the text beside icons */
-  }
-
-  .sidebar ul li a {
-    justify-content: center; /* Center-align icons */
-  }
-}
-
-/* Content area */
+/* Content styling */
 .content {
-  margin-left: 250px; /* Matches the sidebar width */
+  margin-left: 250px; /* Space for the sidebar */
   padding: 20px;
-  width: calc(100% - 250px);
-  transition: margin-left 0.3s ease, width 0.3s ease;
 }
 
+/* Tables and boxes styling */
 .container {
+  width: 100%;
   max-width: 1200px;
   margin: 0 auto;
-  background: white;
-  color: #333;
-  padding: 20px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-  border-radius: 8px;
-  margin-left: 50px;
 }
 
-/* Menu header styling */
-.menu-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 20px;
-}
-
-.menu-header h2 {
-  margin: 0;
-  font-size: 20px;
-}
-
-.menu-header button {
-  background-color: #2ecc71; /* Green */
-  color: white;
-  border: none;
-  padding: 5px 10px;
-  border-radius: 5px;
-  cursor: pointer;
-  font-size: 14px;
-  transition: background-color 0.3s ease;
-}
-
-.menu-header button:hover {
-  background-color: #27ae60; /* Darker green */
-}
-
-/* Headings */
-h1 {
-  text-align: center;
-  color: #2c3e50; /* Dark blue-gray */
-}
-
-h2 {
-  text-align: center;
-  color: #34495e; /* Slightly lighter blue-gray */
-  margin-bottom: 20px; /* Default space below all h2 headings */
-}
-
-/* Add more space below the heading in responsive mode */
-@media screen and (max-width: 768px) {
-  h2 {
-    margin-bottom: 30px; /* Increase space below h2 for smaller screens */
-  }
-}
-
-@media screen and (max-width: 480px) {
-  h2 {
-    margin-bottom: 40px; /* Further increase space below h2 for very small screens */
-  }
-}
-
-/* Tables */
 table {
   width: 100%;
   border-collapse: collapse;
-  margin: 20px 0;
+  margin-bottom: 20px;
 }
 
 th, td {
@@ -176,77 +84,11 @@ td {
   background-color: #ecf0f1; /* Light gray */
 }
 
-/* Buttons */
-button {
-  background-color: #2ecc71; /* Green */
-  color: white;
-  border: none;
-  padding: 10px 15px;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-}
-
-button:hover {
-  background-color: #27ae60; /* Darker green */
-}
-
-/* Graph container styling */
-.graphs-section {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 20px; /* Space between graph sections */
-  justify-content: center; /* Center-align items */
-}
-
-.graph-container {
-  flex: 1;
-  min-width: 300px;
-  height: 300px;
-  margin-bottom: 20px; /* Add space below each graph container */
-}
-
-canvas {
-  width: 100% !important; /* Ensure the canvas takes full width */
-  height: auto !important; /* Maintain aspect ratio */
-}
-
-/* Available Stocks Box Styling */
-.available-stocks-box {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  background-color: #f4f4f9; /* Light gray background */
-  border: 2px solid #2c3e50; /* Dark border */
-  border-radius: 10px;
-  padding: 20px;
-  width: 300px;
-  height: 150px;
-  text-align: center;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-}
-
-.available-stocks-box h2 {
-  margin: 0;
-  font-size: 20px;
-  color: #2c3e50; /* Dark text */
-}
-
-.available-stocks-box p {
-  margin: 10px 0 0;
-  font-size: 24px;
-  font-weight: bold;
-  color: #27ae60; /* Green text */
-}
-
-/* Summary Section Styling */
 .summary-section {
   display: flex;
   justify-content: space-between;
-  align-items: center;
   gap: 20px;
-  margin-bottom: 30px;
+  margin-bottom: 20px;
 }
 
 .summary-box {
@@ -259,90 +101,75 @@ canvas {
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
-.summary-box h2 {
-  margin: 0;
-  font-size: 18px;
-  color: #2c3e50; /* Dark text */
-}
-
-.summary-box p {
-  margin: 10px 0 0;
-  font-size: 24px;
-  font-weight: bold;
-  color: #27ae60; /* Green text */
-}
-
-/* Responsive adjustments */
+/* Responsive Design for Mobile View */
 @media screen and (max-width: 768px) {
-  .graphs-section {
-    gap: 30px; /* Increase gap between graph sections for smaller screens */
-  }
-
-  .graph-container {
-    margin-bottom: 30px; /* Add more space below each graph container */
-  }
-}
-
-@media screen and (max-width: 480px) {
-  .graphs-section {
-    gap: 40px; /* Further increase gap for very small screens */
-  }
-
-  .graph-container {
-    margin-bottom: 40px; /* Further increase space below each graph container */
-  }
-}
-
-/* Responsive design */
-@media screen and (max-width: 480px) {
   .sidebar {
-    width: 100px; /* Narrow sidebar for very small screens */
+    width: 100%; /* Full width for mobile */
+    height: auto;
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: flex;
+    flex-direction: row; /* Arrange menu items horizontally */
+    justify-content: space-around;
+    padding: 10px 0;
+  }
+
+  .sidebar h2 {
+    display: none; /* Hide "Menu" heading for mobile */
+  }
+
+  .sidebar ul {
+    display: flex;
+    flex-direction: row; /* Arrange menu items horizontally */
+    gap: 10px;
+  }
+
+  .sidebar ul li {
+    margin: 0;
   }
 
   .sidebar ul li a {
-    font-size: 14px; /* Further reduce font size */
-    text-align: center; /* Center-align text */
+    font-size: 14px;
+    padding: 5px 10px;
   }
 
-  .sidebar ul li a i {
-    display: block; /* Display icons on their own line */
-    margin-bottom: 5px;
+  .content {
+    margin-top: 60px; /* Add space for the fixed menu bar */
+    margin-left: 0; /* Remove sidebar space */
+    padding: 10px;
   }
 
-  .container {
+  .summary-section {
+    flex-direction: column; /* Stack boxes vertically */
+    gap: 10px;
+  }
+
+  .summary-box {
     padding: 10px;
   }
 
   table {
-    font-size: 12px; /* Further reduce table font size */
+    font-size: 12px; /* Reduce table font size */
   }
 
   th, td {
     padding: 5px;
   }
-
-  canvas {
-    width: 100% !important;
-    height: auto !important;
-  }
 }
 
-@media screen and (max-width: 768px) {
-  .content {
-    margin-left: 80px; /* Matches the sidebar width */
-    width: calc(100% - 80px);
+@media screen and (max-width: 360px) {
+  .sidebar ul li a {
+    font-size: 12px; /* Further reduce font size for smaller screens */
+    padding: 5px;
   }
 
-  .container {
-    padding: 15px;
+  .summary-box p {
+    font-size: 14px; /* Reduce font size for box content */
   }
 
-  table {
-    font-size: 14px; /* Reduce table font size */
-  }
-
-  canvas {
-    width: 100% !important;
-    height: auto !important;
+  table th, table td {
+    font-size: 10px; /* Further reduce table font size */
+    padding: 5px;
   }
 }
