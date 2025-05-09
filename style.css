@@ -12,7 +12,7 @@ body {
   width: 250px; /* Default width for larger screens */
   background-color: #2c3e50; /* Dark blue-gray */
   color: white;
-  padding: 20px;
+  padding: 5px;
   box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
   height: 100vh;
   position: fixed;
