@@ -3,7 +3,10 @@ const inventoryData = JSON.parse(localStorage.getItem('inventory')) || [];
 const salesData = JSON.parse(localStorage.getItem('sales')) || [];
 
 // Calculate Total Value in Inventory
-const totalInventoryValue = inventoryData.reduce((sum, item) => sum + (item.price), 0);
+const totalInventoryValue = inventoryData.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+
+// Save totalInventoryValue to localStorage
+localStorage.setItem('totalInventoryValue', totalInventoryValue);
 
 // Calculate Total Sale Value in Sales
 const totalSalesValue = salesData.reduce((sum, sale) => sum + (sale.quantity * sale.price), 0);
@@ -50,19 +53,3 @@ const availableStocksKg = totalInventoryWeightKg - totalQuantitySoldKg;
 document.getElementById('inventoryWeight').textContent = `${totalInventoryWeightKg} kg`;
 document.getElementById('quantitySold').textContent = `${totalQuantitySoldKg} kg`;
 document.getElementById('availableStocks').textContent = `${availableStocksKg} kg`;
-
-// Theme toggle functionality
-const themeToggle = document.getElementById('themeToggle');
-themeToggle.addEventListener('click', () => {
-  document.body.classList.toggle('dark-mode');
-  document.querySelector('.sidebar').classList.toggle('dark-mode');
-  document.querySelector('.container').classList.toggle('dark-mode');
-  document.querySelectorAll('table').forEach(table => table.classList.toggle('dark-mode'));
-
-  // Update button text
-  if (document.body.classList.contains('dark-mode')) {
-    themeToggle.textContent = 'Switch to Light Mode';
-  } else {
-    themeToggle.textContent = 'Switch to Dark Mode';
-  }
-});

@@ -34,6 +34,11 @@ body {
 
 .sidebar ul li {
   margin-bottom: 10px;
+}.content h1{
+  text-align: center;
+}aside h2{
+  text-align: center;
+ 
 }
 
 .sidebar ul li a {
@@ -54,6 +59,7 @@ body {
 .content {
   margin-left: 250px; /* Space for the sidebar */
   padding: 20px;
+  
 }
 
 /* Tables and boxes styling */
@@ -99,6 +105,71 @@ td {
   padding: 20px;
   text-align: center;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Form Input Table Styling */
+form {
+  max-width: 600px;
+  margin: 20px auto;
+  padding: 20px;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+form h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #007BFF; /* Changed to blue */
+  font-size: 24px;
+}
+
+form label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: bold;
+  color: #333;
+}
+
+form input, form select, form textarea, form button {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: none;
+  border-radius: 4px;
+  font-size: 16px;
+}
+
+form input:focus, form select:focus, form textarea:focus {
+  outline: none;
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.5); /* Changed to blue */
+}
+
+form button {
+  background-color: #405872; /* Changed to blue */
+  color: white;
+  border: none;
+  cursor: pointer;
+  font-size: 18px;
+  transition: background-color 0.3s ease;
+}
+
+form button:hover {
+  background-color: #475463; /* Darker blue for hover effect */
+}
+
+form .form-group {
+  margin-bottom: 15px;
+}
+
+form .form-group-inline {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+form .form-group-inline input {
+  width: calc(50% - 5px);
 }
 
 /* Responsive Design for Mobile View */

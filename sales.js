@@ -24,7 +24,7 @@ function renderSalesTable() {
 
 // Save sales data to localStorage
 function saveSalesData() {
-  localStorage.setItem('sales', JSON.stringify(salesData));
+  localStorage.setItem('sales', JSON.stringify(salesData)); // Save sales data to localStorage
 }
 
 // Handle form submission
@@ -35,25 +35,13 @@ salesForm.addEventListener('submit', function (e) {
   const quantity = parseFloat(document.getElementById('saleQuantity').value);
   const price = parseFloat(document.getElementById('salePrice').value);
 
-  // Check if the sale item with the same name and price already exists
-  const existingSale = salesData.find(
-    sale => sale.name.toLowerCase() === name.toLowerCase() && sale.price === price
-  );
+  const timestamp = new Date().toISOString(); // Add a timestamp for grouping by month
 
-  if (existingSale) {
-    // Update the existing sale's quantity
-    existingSale.quantity += quantity;
-    (`Updated ${name}: Quantity Sold is now ${existingSale.quantity} kg.`);
-  } else {
-    // Add new sale to salesData
-    salesData.push({ name, quantity, price });
-  }
+  // Add the sale to the salesData array
+  salesData.push({ name, quantity, price, timestamp });
 
-  saveSalesData();
-  renderSalesTable();
-
-  // Reset the form
-  salesForm.reset();
+  saveSalesData(); // Save to localStorage
+  renderSalesTable(); // Update the sales table
 });
 
 // Handle delete button clicks

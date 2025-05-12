@@ -37,6 +37,7 @@ form.addEventListener('submit', function (e) {
   const name = document.getElementById('itemName').value;
   const quantity = parseFloat(document.getElementById('itemQuantity').value);
   const price = parseFloat(document.getElementById('itemPrice').value);
+  const timestamp = new Date().toLocaleString(); // Capture current date and time
 
   // Check if the item already exists
   const existingItem = inventoryData.find(item => item.name.toLowerCase() === name.toLowerCase());
@@ -44,11 +45,11 @@ form.addEventListener('submit', function (e) {
     // Update the existing item's quantity and total value
     existingItem.quantity += quantity;
     existingItem.price += price;
+    existingItem.timestamp = timestamp; // Update the timestamp
     (`Updated ${name}: Quantity is now ${existingItem.quantity} sacks.`);
-    (`Updated ${name}: Quantity is now ${existingItem.prices} sacks.`);
   } else {
     // Add new item to inventory
-    inventoryData.push({ name, quantity, price });
+    inventoryData.push({ name, quantity, price, timestamp });
   }
 
   saveInventoryData();
