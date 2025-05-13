@@ -3,7 +3,7 @@ const inventoryData = JSON.parse(localStorage.getItem('inventory')) || [];
 const salesData = JSON.parse(localStorage.getItem('sales')) || [];
 
 // Calculate Total Value in Inventory
-const totalInventoryValue = inventoryData.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+const totalInventoryValue = inventoryData.reduce((sum, item) => sum + (item.price), 0);
 
 // Save totalInventoryValue to localStorage
 localStorage.setItem('totalInventoryValue', totalInventoryValue);

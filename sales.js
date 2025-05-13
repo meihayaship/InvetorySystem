@@ -35,13 +35,30 @@ salesForm.addEventListener('submit', function (e) {
   const quantity = parseFloat(document.getElementById('saleQuantity').value);
   const price = parseFloat(document.getElementById('salePrice').value);
 
-  const timestamp = new Date().toISOString(); // Add a timestamp for grouping by month
+  // Check if the sale item with the same name and price already exists
+  const existingSale = salesData.find(
+    sale => sale.name.toLowerCase() === name.toLowerCase() && sale.price === price
+  );
 
-  // Add the sale to the salesData array
-  salesData.push({ name, quantity, price, timestamp });
+  if (existingSale) {
+    // Update the existing sale's quantity
+    existingSale.quantity += quantity;
+    console.log(`Updated ${name}: Quantity Sold is now ${existingSale.quantity} kg.`);
+  } else {
+    // Add new sale to salesData with a timestamp
+    salesData.push({
+      name,
+      quantity,
+      price,
+      timestamp: new Date().toISOString(), // Add timestamp in ISO format
+    });
+  }
 
-  saveSalesData(); // Save to localStorage
-  renderSalesTable(); // Update the sales table
+  saveSalesData();
+  renderSalesTable();
+
+  // Reset the form
+  salesForm.reset();
 });
 
 // Handle delete button clicks

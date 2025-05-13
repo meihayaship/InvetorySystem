@@ -22,24 +22,19 @@
     <div class="content">
       <div class="container">
         <h1>REPORTS</h1>
-        <table>
-          <thead>
-            <tr>
-              <th>Report Type</th>
-              <th>Description</th>
-              <th>Actions</th>
-            </tr>
-          </thead>
-          <tbody id="reportsTable">
-            <!-- Report rows will appear here -->
-          </tbody>
-        </table>
+
+        <!-- Year Selector -->
+        <label for="yearSelector">Select Year:</label>
+        <select id="yearSelector">
+          <option value="2024">2024</option>
+          <option value="2025" selected>2025</option>
+          <option value="2026">2026</option>
+        </select>
 
         <!-- Add a canvas for the line chart -->
         <h2>Inventory & Sales Line Graph</h2>
         <canvas id="inventoryChart" width="400" height="200"></canvas>
       </div>
-
     </div>
   </div>
   <script src="reports.js"></script>
